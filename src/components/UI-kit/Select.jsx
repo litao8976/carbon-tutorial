@@ -11,7 +11,9 @@ const styles = {
 };
 
 const Select = props => {
-  const { error, touched } = props;
+  const {
+    meta: { error, touched },
+  } = props;
   return (
     <div style={styles.container}>
       <CarbonSelect {...props} />

@@ -12,10 +12,9 @@ import * as serviceWorker from './serviceWorker';
 import { HashRouter as Router } from 'react-router-dom';
 
 ReactDOM.render(
-    <Router>
-      <App />
-    </Router>
- ,
+  <Router>
+    <App />
+  </Router>,
   document.getElementById('root')
 );
 

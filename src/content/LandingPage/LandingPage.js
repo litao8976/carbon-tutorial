@@ -25,6 +25,7 @@ import Globe32 from '@carbon/icons-react/lib/globe/32';
 import PersonFavorite32 from '@carbon/icons-react/lib/person--favorite/32';
 import Application32 from '@carbon/icons-react/lib/application/32';
 import { TextField } from '../../components/UI-kit';
+import FormWithFetch from '../../components/FormWithFetch';
 
 const props = {
   tabs: {
@@ -44,7 +45,7 @@ const initialValues = { email: 'rwrw@qq.com', password: '' };
 const LoginForm = () => (
   <Form initialValues={initialValues} validate={validate} onSubmit={onSubmit}>
     {({ handleSubmit, submitting }) => (
-      <form
+      <CarbonForm
         onSubmit={handleSubmit}
         style={{
           display: 'flex',
@@ -55,12 +56,7 @@ const LoginForm = () => (
         <Field
           name="email"
           render={({ input, meta }) => (
-            <TextField
-              {...input}
-              error={meta.error}
-              touched={meta.touched}
-              labelText={'Email'}
-            />
+            <TextField {...input} id="email" meta={meta} labelText={'Email'} />
           )}
         />
         <Field
@@ -68,9 +64,9 @@ const LoginForm = () => (
           render={({ input, meta }) => (
             <TextField
               {...input}
+              id="password"
               type="password"
-              error={meta.error}
-              touched={meta.touched}
+              meta={meta}
               labelText={'Pasword'}
             />
           )}
@@ -83,7 +79,7 @@ const LoginForm = () => (
           type="submit">
           Submit
         </Button>
-      </form>
+      </CarbonForm>
     )}
   </Form>
 );
@@ -131,6 +127,7 @@ const LandingPage = () => {
                 <div className="bx--row landing-page__tab-content">
                   <div className="bx--col-lg-16">
                     <LoginForm />
+                    <FormWithFetch />
                   </div>
                 </div>
               </div>

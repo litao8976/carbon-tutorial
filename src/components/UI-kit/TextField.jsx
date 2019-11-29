@@ -11,7 +11,9 @@ const styles = {
 };
 
 const TextField = props => {
-  const { error, touched } = props;
+  const {
+    meta: { error, touched },
+  } = props;
   return (
     <div style={styles.container}>
       <TextInput {...props} invalid={error && touched} invalidText={error} />
